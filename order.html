@@ -141,9 +141,9 @@
                   <label for="paket" class="form-label">Pilih Paket</label>
                   <select class="form-select" id="paket" required>
                     <option selected disabled>Pilih salah satu paket</option>
-                    <option value="basic">Paket Basic - Rp50.000</option>
-                    <option value="pro">Paket Pro - Rp100.000</option>
-                    <option value="premium">Paket Premium - Rp200.000</option>
+                    <option value="hari">Paket Hari - Rp100.000</option>
+                    <option value="minggu">Paket Minggu - Rp300.000</option>
+                    <option value="bulan">Paket Bulan - Rp1.000.000</option>
                   </select>
                 </div>
                 <!-- Catatan Tambahan -->
@@ -169,6 +169,63 @@
           </div>
         </div>
       </section>
+
+      <!-- Modal Konfirmasi Pesanan -->
+      <div
+        class="modal fade"
+        id="konfirmasiPesananModal"
+        tabindex="-1"
+        aria-labelledby="konfirmasiPesananLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="konfirmasiPesananLabel">
+                Konfirmasi Pesanan Anda
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>Berikut detail pesanan Anda:</p>
+              <ul>
+                <li>
+                  <strong>Nama Lengkap:</strong>
+                  <span id="modalNamaLengkap"></span>
+                </li>
+                <li><strong>Email:</strong> <span id="modalEmail"></span></li>
+                <li>
+                  <strong>Nomor Telepon:</strong>
+                  <span id="modalNomorTelepon"></span>
+                </li>
+                <li><strong>Paket:</strong> <span id="modalPaket"></span></li>
+                <li>
+                  <strong>Catatan:</strong> <span id="modalCatatan"></span>
+                </li>
+              </ul>
+              <p>Apakah informasi ini sudah benar?</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Batal
+              </button>
+              <button type="button" class="btn btn-primary">
+                Konfirmasi Pesanan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Modal Konfirmasi Pesanan -->
 
       <!-- /Starter Section Section -->
     </main>
@@ -221,8 +278,7 @@
 
       <div class="container copyright text-center mt-4">
         <p>
-          © <span>Copyright</span>
-          <strong class="px-1 sitename">Dophcy</strong
+          © <span>Copyright</span> <strong class="px-1 sitename">Dophcy</strong
           ><span>All Rights Reserved</span>
         </p>
       </div>
@@ -238,6 +294,52 @@
 
     <!-- Preloader -->
     <div id="preloader"></div>
+
+    <!-- script modal -->
+    <script>
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Mencegah form dikirim
+
+        // Ambil data dari form
+        const namaLengkap = document.getElementById("namaLengkap").value;
+        const email = document.getElementById("email").value;
+        const nomorTelepon = document.getElementById("nomorTelepon").value;
+        const paket = document.getElementById("paket").value;
+        const catatan =
+          document.getElementById("catatan").value || "Tidak ada catatan";
+
+        // Isi data ke modal
+        document.getElementById("modalNamaLengkap").textContent = namaLengkap;
+        document.getElementById("modalEmail").textContent = email;
+        document.getElementById("modalNomorTelepon").textContent = nomorTelepon;
+        document.getElementById("modalPaket").textContent = paket;
+        document.getElementById("modalCatatan").textContent = catatan;
+
+        // Tampilkan modal
+        const modal = new bootstrap.Modal(
+          document.getElementById("konfirmasiPesananModal")
+        );
+        modal.show();
+      });
+
+      // Event listener untuk tombol "Konfirmasi Pesanan"
+      document
+        .querySelector("#konfirmasiPesananModal .btn-primary")
+        .addEventListener("click", function () {
+          // Logika ketika tombol "Konfirmasi Pesanan" diklik
+          alert("Pesanan Anda telah dikonfirmasi!");
+
+          // Reset form
+          document.querySelector("form").reset();
+
+          // Tutup modal
+          const modalElement = document.getElementById(
+            "konfirmasiPesananModal"
+          );
+          const modalInstance = bootstrap.Modal.getInstance(modalElement);
+          modalInstance.hide();
+        });
+    </script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
