@@ -1329,6 +1329,27 @@ section,
   background: rgba(243, 38, 140, 0.1);
 }
 
+.services .service-item.item-purple .icon {
+  color: #9932cc;
+  border: 1px solid #9932cc;
+  background: rgba(153, 50, 204, 0.1);
+}
+.services .service-item.item-green .icon {
+  color: #32cd32;
+  border: 1px solid #32cd32;
+  background: rgba(50, 205, 50, 0.1);
+}
+.services .service-item.item-blue .icon {
+  color: #1e90ff;
+  border: 1px solid #1e90ff;
+  background: rgba(30, 144, 255, 0.1);
+}
+.services .service-item.item-yellow .icon {
+  color: #daa520;
+  border: 1px solid #daa520;
+  background: rgba(218, 165, 32, 0.1);
+}
+
 .services .service-item:hover {
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
 }
