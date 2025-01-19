@@ -136,14 +136,37 @@
                     required
                   />
                 </div>
-                <!-- Pilihan Paket -->
+                <!-- Pilih Layanan -->
                 <div class="mb-3">
-                  <label for="paket" class="form-label">Pilih Paket</label>
-                  <select class="form-select" id="paket" required>
-                    <option selected disabled>Pilih salah satu paket</option>
-                    <option value="hari">Paket Hari - Rp100.000</option>
-                    <option value="minggu">Paket Minggu - Rp300.000</option>
-                    <option value="bulan">Paket Bulan - Rp1.000.000</option>
+                  <label for="layanan" class="form-label">Pilih Layanan</label>
+                  <select class="form-select" id="layanan" required>
+                    <option selected disabled>Pilih salah satu layanan</option>
+                    <option value="digital-marketing-strategy">
+                      Digital Marketing Strategy
+                    </option>
+                    <option value="social-media-management">
+                      Social Media Management
+                    </option>
+                    <option value="content-marketing">Content Marketing</option>
+                    <option value="seo">SEO</option>
+                    <option value="analytics-reporting">
+                      Analytics & Reporting
+                    </option>
+                    <option value="website-company-profile">
+                      Website Company Profile
+                    </option>
+                    <option value="website-ecommerce">
+                      Website E-commerce
+                    </option>
+                    <option value="company-profile-video">
+                      Company Profile Video
+                    </option>
+                    <option value="social-media-video-content">
+                      Social Media Video Content
+                    </option>
+                    <option value="video-editing-motion-graphics">
+                      Video Editing & Motion Graphics
+                    </option>
                   </select>
                 </div>
                 <!-- Catatan Tambahan -->
@@ -203,7 +226,9 @@
                   <strong>Nomor Telepon:</strong>
                   <span id="modalNomorTelepon"></span>
                 </li>
-                <li><strong>Paket:</strong> <span id="modalPaket"></span></li>
+                <li>
+                  <strong>Layanan:</strong> <span id="modalLayanan"></span>
+                </li>
                 <li>
                   <strong>Catatan:</strong> <span id="modalCatatan"></span>
                 </li>
@@ -304,7 +329,7 @@
         const namaLengkap = document.getElementById("namaLengkap").value;
         const email = document.getElementById("email").value;
         const nomorTelepon = document.getElementById("nomorTelepon").value;
-        const paket = document.getElementById("paket").value;
+        const layanan = document.getElementById("layanan").value; // Updated for "layanan"
         const catatan =
           document.getElementById("catatan").value || "Tidak ada catatan";
 
@@ -312,7 +337,7 @@
         document.getElementById("modalNamaLengkap").textContent = namaLengkap;
         document.getElementById("modalEmail").textContent = email;
         document.getElementById("modalNomorTelepon").textContent = nomorTelepon;
-        document.getElementById("modalPaket").textContent = paket;
+        document.getElementById("modalLayanan").textContent = layanan; // Updated for "layanan"
         document.getElementById("modalCatatan").textContent = catatan;
 
         // Tampilkan modal
